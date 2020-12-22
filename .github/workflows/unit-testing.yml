@@ -1,0 +1,18 @@
+name: unit-testing
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Install GTest
+      run: sudo apt-get install libgtest-dev && sudo apt-get install cmake && cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && cd lib && sudo cp *.a /usr/lib
+    
+    - uses: actions/checkout@v1
+    
+    - name : make 
+      run : make -C set3/banking/
+    
+    - name: make test
+      run: make test -C set3/banking/
