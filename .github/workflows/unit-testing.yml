@@ -13,8 +13,8 @@ jobs:
     
     - name : make 
       run : make -C set3/bankaccount/
-                    set3/Customer/
+                  -C set3/Customer/
     
     - name: make test
       run: make test -C set3/bankaccount/
-                        set3/Customer/
+                      -C set3/Customer/
